@@ -55,7 +55,7 @@ website itself does not really delve into anything to do with the career.
 prerequisites as well, but students must independently compare that information with their degree requirements and career
 goals. This would mean that it makes more work for them having to sift through and it should just be automated for them through Degree Audit.
 
-### Evidence 3: GMU Catalog Course Search
+### Evidence 3: GMU Course Catalog Search
 
 ![GMU Course Search](screenshots/GMU%20Course%20Catalog%20Lookup.png)
 
