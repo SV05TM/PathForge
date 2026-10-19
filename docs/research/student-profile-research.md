@@ -38,12 +38,30 @@ This profile would then provide PathForge would the information needed for cours
 
 
 ## 6. Supporting Evidence
-- GMU Degree Audit: Screenshot illustrating how outstanding requirements and course options are displayed
-- GMU Course Catalog: Screenshot illustrating course descriptions and prerequisites
+
+### Evidence 1: GMU Degree Audit
+
+![GMU Degree Audit](screenshots/Path%20to%20Grad.png) 
+
+**Observation:** Even though GMU Degree Audit likes to showcase that it streamlines the path to graduation, it falls short
+in that it does not really take into consideration the career interests and just the graduation part of it all. The
+website itself does not really delve into anything to do with the career.
+
+### Evidence 2: GMU Computer Science Course Catalog
+
+![GMU Course Catalog](screenshots/GMU%20Course%20Catalog.png)
+
+**Observation:** The GMU Course Catalog is a great place to get information regarding the classes you will take and the
+prerequisites as well, but students must independently compare that information with their degree requirements and career
+goals. This would mean that it makes more work for them having to sift through and it should just be automated for them through Degree Audit.
+
+![GMU Course Search](screenshots/GMU%20Course%20Catalog%20Lookup.png)
+
+**Observation:** This does no favors either because it gives information about the professors dictating the class, but does not make it any easier for someone to actually be able to connect both degree and career requirements. It makes it feel impossible and that this is taken care of Degree Audit already, but fails to actually touch on what will support your career and makes it seem a bit convoluted to figure it out.
+
 
 ## 7. Conclusion
 The initial research suggests an opportunity to make academic planning clearer and more personalized for GMU CS students
-By combining academic history with career interests, PathForge aims to help students make more informed course-planning decisions
-while supporting rather than replacing academic advising. 
+By combining academic history with career interests, PathForge aims to help students make more informed course-planning decisions while supporting rather than replacing academic advising. 
 
 
