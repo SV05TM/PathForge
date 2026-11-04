@@ -1,9 +1,29 @@
 /* General page */
 body {
     font-family: Arial, sans-serif;
-    margin: 0
+    margin: 0;
     background-color: #f4f6f5;
     color: #333;
+}
+
+
+.main-content label {
+    display: block;
+    text-align: center;
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+.progress {
+    display: block;
+    margin: 0 auto 2rem;
+    width: 80%;
+    max-width: 700px;
+    height: 32px;
 }
 
 /* Header styling */
@@ -16,11 +36,13 @@ header {
 /* Title header */
 header h1 {
     margin: 0;
+    text-align: center;
 }
 
 /* Hotbar of tabs */
 nav {
     margin-top: 15px;
+    text-align: center;
 }
 
 /* Individual tabs */
@@ -62,6 +84,11 @@ textarea {
     box-sizing: border-box;
 }
 
+a {
+    color: white;
+    text-decoration: none;
+}
+
 
 /* Puts background image in back */
 body {
@@ -76,14 +103,24 @@ body {
 .main-content {
     background-color: white;
     width: 70%;
-    min-height: 100vh;
+    text-align: center;
+    min-height: 80vh;
     margin: 0 auto;
     padding: 30px;
-    box-sizing: border-box;
+    box-sizing: border-box
 }
 
 /* Button */
 button {
     display: block;
     margin: 20px auto 0;
+}
+
+.btn {
+    width: 400px;
+    height: 100px;
+    font-size: 20px;
+    margin-top: 100px;
+    background-color: white;
+    border-color: black;
 }
