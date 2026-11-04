@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>MyStudentHub</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <header>
+            <a href="index.html">
+                <h1>PathForge</h1>
+            </a>
+
+            <!-- Navigation to other tabs -->
+            <nav>
+                <!-- Placeholder for Course Catalog -->
+                <a href="mystudenthub.html">MyStudentHub</a>
+                <a href="#">Course Catalog</a>
+                <a href="transcript.html">Upload Transcript</a>
+                <a href="progress.html">View Degree Progress</a>
+            </nav>
+        </header>
+
+        <!-- Main content area containing the student profile form -->
+        <main>
+            <div class="main-content">
+                <h1>MyStudentHub</h1>
+                <h2>Create Your Student Profile</h2>
+                <p>
+                    Enter your academic information and career interests to recieve personalized course recommendations.
+                </p>
+
+                <!-- Form for collecting the student's academic and career information -->
+                <form>
+                    <h3>Academic Information</h3>
+                    
+                    <!-- Input field for major -->
+                    <label for="major">Major:</label>
+                    <input type="text" id="major" name="major" placeholder="Computer Science">
+                    
+                    <!-- Input field for credits -->
+                    <label for="credits">Credits Earned:</label>
+                    <input type="number" id="major" name="credits" placeholder="60">
+                    
+                    <!-- Input field for taken classes -->
+                    <label for="courses">Completed Courses:</label>
+                    <textarea id="courses" name="courses" placeholder="CS 110, CS 112, MATH 113..."></textarea>
+                
+
+                    <label for="career">Career Interest:</label>
+
+                    <!-- Dropdown menu for career interest -->
+                    <select id="career" name="career">
+                        <option value="">Choose an option</option>
+                        <option value="ai">Artificial Intelligence</option>
+                        <option value="cybersecurity">Cybersecurity</option>
+                        <option value="datascience">Data Science</option>
+                        <option value="software">Software Development</option>
+                        <option value="webdev">Web Development</option>
+                    </select>
+
+                    <!-- Input field for skills -->
+                    <label for="skills">Skills:</label>
+                    <textarea id="skills" name="skills" placeholder="Python, Java, C"></textarea>
+                    
+                    <!-- Button for submitting the student profile -->
+                    <button type="submit">Create Profile</button>
+                </form>
+            </div>
+        </main>
+    </body>
+</html>
