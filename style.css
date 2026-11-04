@@ -1,0 +1,89 @@
+/* General page */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0
+    background-color: #f4f6f5;
+    color: #333;
+}
+
+/* Header styling */
+header {
+    background-color: #006633;
+    color: white;
+    padding: 20px;
+}
+
+/* Title header */
+header h1 {
+    margin: 0;
+}
+
+/* Hotbar of tabs */
+nav {
+    margin-top: 15px;
+}
+
+/* Individual tabs */
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+/* When hovering over tabs */
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Main section of page */
+main {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+/* Label */
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Input, Select & Textarea */
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+
+/* Puts background image in back */
+body {
+    margin: 0;
+    background-image: url("https://www.gmu.edu/sites/default/files/styles/feature_image_medium/public/2023-04/mason%20pond%20spring%2016x9%20230330002.jpg?itok=hvrLbnuL");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* White box in the middle */
+.main-content {
+    background-color: white;
+    width: 70%;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+/* Button */
+button {
+    display: block;
+    margin: 20px auto 0;
+}
