@@ -8,7 +8,7 @@ CREATE TABLE computer_science (
     cs_related INTEGER NOT NULL DEFAULT 0,
     natural_science INTEGER NOT NULL DEFAULT 0,
     additional_mason_core INTEGER NOT NULL DEFAULT 0
-)
+);
 
 INSERT INTO computer_science
     (code, credits, cs_core, senior_cs, mathematics, stats, cs_related, natural_science, additional_mason_core)
