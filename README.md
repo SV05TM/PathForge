@@ -9,10 +9,30 @@
 - MySQL Server
 - MySQL Workbench
 
-### 1. Clone the Repository
+### 1. Navigation
 
 Clone the GitHub repository and navigate to the project directory.
 
 ```bash
-git clone <repository-url>
-cd PathForged
+cd PathForge/backend
+```
+
+### 2. Installation
+```bash
+npm install
+```
+### 3. Setup MySql
+
+create a file in the backend called .env and add this: 
+```bash
+MYSQL_HOST = localhost
+MYSQL_USER = root
+MYSQL_PASSWORD = yourmysqlpassword
+MYSQL_DATABASE = pathforge
+```
+
+### 4. Running
+run the server using this:
+```bash
+node app.js
+```
