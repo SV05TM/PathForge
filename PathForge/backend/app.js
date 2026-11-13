@@ -6,8 +6,8 @@ const app = express();
 app.use(cors());
 app.use(express.json())
 
-app.post('/postRequest', async (req, res) => {
-    const Profile = {
+app.post('/post', async (req, res) => {
+    let Profile = {
         credits: req.body.credits,
         courses: req.body.courses,
         career: req.body.career,
@@ -15,8 +15,8 @@ app.post('/postRequest', async (req, res) => {
     }
 
     Profile.courses = Profile.courses.split(",").map(course => course.trim().toUpperCase());
-    const courses = Profile.courses;
-    const [course_list] = await pool.query(`SELECT * FROM computer_science WHERE code IN (?)`,
+    let courses = Profile.courses;
+    let [course_list] = await pool.query(`SELECT * FROM computer_science WHERE code IN (?)`,
         [Profile.courses]
     );
     let creds = 0;
