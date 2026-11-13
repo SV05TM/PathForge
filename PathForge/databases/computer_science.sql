@@ -7,11 +7,11 @@ CREATE TABLE computer_science (
     stats INTEGER NOT NULL DEFAULT 0,
     cs_related INTEGER NOT NULL DEFAULT 0,
     natural_science INTEGER NOT NULL DEFAULT 0,
-    additional_mason_core INTEGER NOT NULL DEFAULT 0,
+    additional_mason_core INTEGER NOT NULL DEFAULT 0
 )
 
 INSERT INTO computer_science
-    (code, title, credits, cs_core, senior_cs, mathematics, stats, cs_related, natural_science, additional_mason_core)
+    (code, credits, cs_core, senior_cs, mathematics, stats, cs_related, natural_science, additional_mason_core)
 VALUES
     ('CS 108', 3, 1, 0, 0, 0, 0, 0, 0),
     ('CS 109', 3, 1, 0, 0, 0, 0, 0, 0),
@@ -25,14 +25,12 @@ VALUES
     ('CS 330', 3, 1, 0, 0, 0, 0, 0, 0),
     ('CS 367', 4, 1, 0, 0, 0, 0, 0, 0),
     ('CS 405', 3, 1, 0, 0, 0, 0, 0, 0),
-    ('CS 450', 3, 1, 0, 0, 0, 0, 0, 0),
+    ('CS 450', 3, 1, 1, 0, 0, 0, 0, 0),
     ('CS 471', 3, 1, 0, 0, 0, 0, 0, 0),
     ('CS 483', 3, 1, 0, 0, 0, 0, 0, 0),
-    ('CS 455', 3, 0, 1, 0, 0, 0, 0, 0),
     ('CS 468', 3, 0, 1, 0, 0, 0, 0, 0),
     ('CS 475', 3, 0, 1, 0, 0, 0, 0, 0),
     ('CS 425', 3, 0, 1, 0, 0, 0, 0, 0),
-    ('CS 450', 3, 0, 1, 0, 0, 0, 0, 0),
     ('CS 451', 3, 0, 1, 0, 0, 0, 0, 0),
     ('CS 452', 3, 0, 1, 0, 0, 0, 0, 0),
     ('CS 453', 3, 0, 1, 0, 0, 0, 0, 0),

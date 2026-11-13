@@ -11,3 +11,4 @@ const pool = mysql.createPool({
 
 const [result] = await pool.query("SELECT * FROM computer_science")
 console.log(`Connected. table has ${result.length} rows.`);
+export default pool;

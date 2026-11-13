@@ -17,6 +17,15 @@ studentForm.addEventListener("submit", function(event) {
 
     // Turn studentProfile object into a JSON string to store in localStorage
     localStorage.setItem("studentProfile", JSON.stringify(studentProfile));
+    fetch("http://localhost:3000/api/profile", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(studentProfile)
+    })
+    .then(response => response.json())
+    .then(data => console.log(data));
 
     // Alert the student to know their profile is saved
     alert("Your student profile has been saved!")
