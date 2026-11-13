@@ -1,12 +1,8 @@
-// Get the student profile form
 const studentForm = document.getElementById("studentForm");
 
-// Listen for when the student activates the submit event
-studentForm.addEventListener("submit", function(event) {
-    // This prevents the page from refreshing once the button's pressed
+studentForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    // Collect the info entered by the student saved as text
     const studentProfile = {
         credits: document.getElementById("credits").value,
         courses: document.getElementById("courses").value,
@@ -14,20 +10,22 @@ studentForm.addEventListener("submit", function(event) {
         skills: document.getElementById("skills").value
     };
 
-    // Turn studentProfile object into a JSON string to store in localStorage
-    localStorage.setItem("studentProfile", JSON.stringify(studentProfile));
-    fetch("http://localhost:3000/postRequest", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(studentProfile)
-    })
-    .then(response => response.json())
-    .then(data => {
-        sessionStorage.setItem("progressData", JSON.stringify(data));
-        alert("Your student profile has been saved!");
-        window.location.href = "progress.html";
+    try {
+        const response = await fetch("http://localhost:3000/api/profile", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(studentProfile)
+        });
 
-    });
+        if (!response.ok) {
+            throw new Error(`Server returned ${response.status}`);
+        }
+
+        const data = await response.json();
+        localStorage.setItem("studentProfile", JSON.stringify(studentProfile));
+        sessionStorage.setItem("progressData", JSON.stringify(data));
+        window.location.href = "progress.html";
+    } catch (error) {
+        alert(`Could not calculate progress: ${error.message}`);
+    }
 });

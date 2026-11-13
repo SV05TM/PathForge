@@ -1,12 +1,14 @@
 import express from 'express';
 import cors from 'cors';
 import pool from './server.js';
+import { mkdir, writeFile } from 'node:fs/promises';
+import { randomUUID } from 'node:crypto';
 
 const app = express();
 app.use(cors());
 app.use(express.json())
 
-app.post('/post', async (req, res) => {
+app.post('/api/profile', async (req, res) => {
     let Profile = {
         credits: req.body.credits,
         courses: req.body.courses,
@@ -48,6 +50,34 @@ app.post('/post', async (req, res) => {
         progress: categories,
     });
 })
+
+const transcriptFolder = new URL('../../uploads/', import.meta.url);
+
+app.post(
+    '/api/transcripts',
+    express.raw({ type: 'application/pdf', limit: '10mb' }),
+    async (req, res) => {
+        const pdf = req.body;
+
+        if (!Buffer.isBuffer(pdf) ||
+            pdf.subarray(0, 5).toString('ascii') !== '%PDF-') {
+            return res.status(400).json({ error: 'Select a PDF file.' });
+        }
+
+        try {
+            const id = randomUUID();
+            await mkdir(transcriptFolder, { recursive: true });
+            await writeFile(new URL(`${id}.pdf`, transcriptFolder), pdf, {
+                flag: 'wx'
+            });
+
+            return res.status(201).json({ id, message: 'Transcript saved.' });
+        } catch (error) {
+            console.error('Transcript save failed:', error.message);
+            return res.status(500).json({ error: 'Could not save the transcript.' });
+        }
+    }
+);
 
 
 app.listen(3000, () => {
