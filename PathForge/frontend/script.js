@@ -8,7 +8,6 @@ studentForm.addEventListener("submit", function(event) {
 
     // Collect the info entered by the student saved as text
     const studentProfile = {
-        major: document.getElementById("major").value,
         credits: document.getElementById("credits").value,
         courses: document.getElementById("courses").value,
         career: document.getElementById("career").value,
@@ -17,7 +16,7 @@ studentForm.addEventListener("submit", function(event) {
 
     // Turn studentProfile object into a JSON string to store in localStorage
     localStorage.setItem("studentProfile", JSON.stringify(studentProfile));
-    fetch("http://localhost:3000/api/profile", {
+    fetch("http://localhost:3000/postRequest", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -25,8 +24,10 @@ studentForm.addEventListener("submit", function(event) {
         body: JSON.stringify(studentProfile)
     })
     .then(response => response.json())
-    .then(data => console.log(data));
+    .then(data => {
+        sessionStorage.setItem("progressData", JSON.stringify(data));
+        alert("Your student profile has been saved!");
+        window.location.href = "progress.html";
 
-    // Alert the student to know their profile is saved
-    alert("Your student profile has been saved!")
+    });
 });
