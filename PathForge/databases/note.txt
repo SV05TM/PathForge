@@ -1,8 +1,0 @@
-IF a course code starts which this spcific code, it falls under the specific category in the mason core
-
-
-literature = [ARAB, CHIN, CLAS, ELED, ENGH, FREN, FRLN, GERM, INTS, ITAL, JAPA, KORE, PHIL, RELI, RUSS, SEED, SPAN]
-art = [ARTH, AVT, DANC, DSGN, ENGH, FAVS, GAME, MUSI, THR]
-global history = [ANTH, BUS, CEIE, CONF, CRIM, CULT, EVPP, FAVS, FOLK, GERM, GLOA, GOVT, HIST, SOCI]
-social and behavioral sciences = [AFAM, EDEM, ECON]
-global contexts [GCH, GEOC, GGS, INYO, PSYC, SPMT]

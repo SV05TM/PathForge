@@ -47,9 +47,19 @@ app.post('/api/profile', async (req, res) => {
         additional_mason_core: 0
     }
 
+    let masonCore = new Set([
+        "ARAB", "CHIN", "CLAS", "ELED", "ENGH", "COMM", "FREN", "FRLN", "GERM", 
+        "INTS", "ITAL", "JAPA", "KORE", "PHIL", "RELI", "RUSS", "SEED", "SPAN",
+        "ARTH", "AVT", "DANC", "DSGN", "ENGH", "FAVS", "GAME", "MUSI", "THR",
+        "ANTH", "BUS", "CEIE", "CONF", "CRIM", "CULT", "EVPP", "FAVS", "FOLK", "GERM", "GLOA", "GOVT", "HIST", "SOCI",
+        "AFAM", "EDEM", "ECON",
+        "GCH", "GEOC", "GGS", "INYO", "PSYC", "SPMT",
+    ])
+
 
     for (let i = 0; i < course_list.length; i++) {
         let course = course_list[i];
+        console.log(course.code, course.natural_science, course.credits);
         let credits = Number(course.credits);
         creds += credits; 
         for (let j in categories) {
@@ -58,11 +68,19 @@ app.post('/api/profile', async (req, res) => {
             }
         }
     }
+    for (let i = 0; i < courses.length; i++) {
+        let code = courses[i].split(" ")[0];
+        let course = course_list.find(c => c.code === courses[i]);
+        if (!course && masonCore.has(code)) {
+            categories.additional_mason_core += 3;
+        }
+    
+    }
+
 
     res.json({
     message: "updated degree progress",
     progress: categories,
-    unknownCourses
 });
 })
 
