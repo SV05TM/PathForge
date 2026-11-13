@@ -40,8 +40,12 @@
                     <input type="number" id="credits" name="credits" placeholder="60">
                     
                     <!-- Input field for taken classes -->
-                    <label for="courses">Completed Courses:</label>
-                    <textarea id="courses" name="courses" placeholder="CS 110, CS 112, MATH 113..."></textarea>
+                    <label for="courses">Completed Courses (required):</label>
+                    <textarea id="courses" name="courses"
+                        placeholder="CS 110, CS 112, MATH 113..."
+                        required aria-describedby="courses-error"></textarea>
+                    <p id="courses-error" role="alert"></p>
+                                        
                 
 
                     <label for="career">Career Interest:</label>

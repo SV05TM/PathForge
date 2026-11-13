@@ -2,6 +2,8 @@ const studentForm = document.getElementById("studentForm");
 
 studentForm.addEventListener("submit", async (event) => {
     event.preventDefault();
+    const errorMessage = document.getElementById("courses-error");
+    errorMessage.textContent = "";
 
     const studentProfile = {
         credits: document.getElementById("credits").value,
@@ -17,15 +19,19 @@ studentForm.addEventListener("submit", async (event) => {
             body: JSON.stringify(studentProfile)
         });
 
+        const data = await response.json().catch(() => null);
+
         if (!response.ok) {
-            throw new Error(`Server returned ${response.status}`);
+            throw new Error(data?.error || `Server returned ${response.status}.`);
         }
 
-        const data = await response.json();
+        if (!data?.progress) {
+            throw new Error("The server did not return degree progress.");
+}
         localStorage.setItem("studentProfile", JSON.stringify(studentProfile));
         sessionStorage.setItem("progressData", JSON.stringify(data));
         window.location.href = "progress.html";
-    } catch (error) {
-        alert(`Could not calculate progress: ${error.message}`);
+       } catch (error) {
+        errorMessage.textContent = `Could not calculate progress. ${error.message}`;
     }
 });

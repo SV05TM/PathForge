@@ -9,18 +9,32 @@ app.use(cors());
 app.use(express.json())
 
 app.post('/api/profile', async (req, res) => {
-    let Profile = {
-        credits: req.body.credits,
-        courses: req.body.courses,
-        career: req.body.career,
-        skills: req.body.skills
+    const input = req.body?.courses;
+    const courses = typeof input === "string"
+        ? [...new Set(input.split(",")
+            .map(course => course.trim().toUpperCase().replace(/\s+/g, " "))
+            .filter(Boolean))]
+        : [];
+
+    if (courses.length === 0) {
+        return res.status(400).json({
+            error: "Enter at least one completed course, such as CS 112."
+        });
     }
 
-    Profile.courses = Profile.courses.split(",").map(course => course.trim().toUpperCase());
-    let courses = Profile.courses;
-    let [course_list] = await pool.query(`SELECT * FROM computer_science WHERE code IN (?)`,
-        [Profile.courses]
+    const [course_list] = await pool.query(
+        "SELECT * FROM computer_science WHERE code IN (?)",
+        [courses]
     );
+
+    const matchedCodes = new Set(course_list.map(course => course.code));
+    const unknownCourses = courses.filter(code => !matchedCodes.has(code));
+
+    if (course_list.length === 0) {
+        return res.status(422).json({
+            error: `No courses matched the PathForge catalog. Check: ${unknownCourses.join(", ")}.`
+        });
+    }
     let creds = 0;
 
     let categories = {
@@ -46,9 +60,10 @@ app.post('/api/profile', async (req, res) => {
     }
 
     res.json({
-        message: 'updated degree progress',
-        progress: categories,
-    });
+    message: "updated degree progress",
+    progress: categories,
+    unknownCourses
+});
 })
 
 const transcriptFolder = new URL('../../uploads/', import.meta.url);
